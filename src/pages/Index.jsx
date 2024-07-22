@@ -1,41 +1,61 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 
 const Index = () => {
-  const [greeting, setGreeting] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("english");
+  const [helloMessage, setHelloMessage] = useState("Hello!");
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 12) {
-      setGreeting("Good morning");
-    } else if (hour < 18) {
-      setGreeting("Good afternoon");
-    } else {
-      setGreeting("Good evening");
-    }
-  }, []);
+  const languages = {
+    english: "Hello!",
+    spanish: "¡Hola!",
+    french: "Bonjour!",
+    german: "Hallo!",
+    italian: "Ciao!",
+    japanese: "こんにちは (Konnichiwa)!",
+    korean: "안녕하세요 (Annyeonghaseyo)!",
+    chinese: "你好 (Nǐ hǎo)!",
+  };
+
+  const handleLanguageChange = (value) => {
+    setSelectedLanguage(value);
+    setHelloMessage(languages[value]);
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-primary text-primary-foreground p-4">
-        <h1 className="text-2xl font-bold">My Application</h1>
+        <h1 className="text-2xl font-bold">Multi-lingual Hello App</h1>
       </header>
 
       <main className="flex-grow p-4">
         <Card className="max-w-md mx-auto">
           <CardHeader>
-            <CardTitle>{greeting}, User!</CardTitle>
+            <CardTitle>Say Hello in Different Languages</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-4">Welcome to our application. The greeting changes based on the time of day.</p>
-            <Button>Click me</Button>
+            <Select onValueChange={handleLanguageChange} defaultValue={selectedLanguage}>
+              <SelectTrigger className="w-full mb-4">
+                <SelectValue placeholder="Select a language" />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.keys(languages).map((lang) => (
+                  <SelectItem key={lang} value={lang}>
+                    {lang.charAt(0).toUpperCase() + lang.slice(1)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <div className="p-4 bg-secondary rounded-md text-center">
+              <p className="text-2xl font-bold">{helloMessage}</p>
+            </div>
           </CardContent>
         </Card>
       </main>
 
       <footer className="bg-secondary text-secondary-foreground p-4 text-center">
-        <p>&copy; 2023 My Application. All rights reserved.</p>
+        <p>&copy; 2023 Multi-lingual Hello App. All rights reserved.</p>
       </footer>
     </div>
   );
