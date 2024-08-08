@@ -15,15 +15,15 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-red-500">
-      <Card className="w-[300px]">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-red-500 to-pink-500">
+      <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>Hello Generator</CardTitle>
+          <CardTitle className="text-2xl text-center">Hello Generator</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center">
-            <Button onClick={addHello} className="mb-4">Say Hello</Button>
-            <div className="h-[200px] overflow-y-auto border rounded p-2">
+            <Button onClick={addHello} className="mb-4 w-full">Say Hello</Button>
+            <div className="h-[300px] overflow-y-auto border rounded p-4">
               {hellos.map(hello => (
                 <p key={hello.id} className={`${hello.color} font-bold`}>Hello!</p>
               ))}
