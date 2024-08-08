@@ -13,7 +13,7 @@ const Layout = () => {
           <nav>
             <ul className="flex space-x-4">
               <li><a href="/" className="hover:text-pink-500">Home</a></li>
-              <li><a href="#" className="hover:text-pink-500 easter-egg">About</a></li>
+              <li><a href="/about" className="hover:text-pink-500">About</a></li>
               <li><a href="#" className="hover:text-pink-500">Contact</a></li>
             </ul>
           </nav>
@@ -24,8 +24,7 @@ const Layout = () => {
           <nav className="p-4">
             <ul className="space-y-2">
               <li><a href="/" className="block hover:bg-pink-100 p-2 rounded">Home</a></li>
-              <li><a href="#" className="block hover:bg-pink-100 p-2 rounded easter-egg">Dashboard</a></li>
-              <li><a href="#" className="block hover:bg-pink-100 p-2 rounded">Settings</a></li>
+              <li><a href="/about" className="block hover:bg-pink-100 p-2 rounded">About</a></li>
             </ul>
           </nav>
         </aside>
