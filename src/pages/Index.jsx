@@ -15,7 +15,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-red-500">
       <Card className="w-[300px]">
         <CardHeader>
           <CardTitle>Hello Generator</CardTitle>
